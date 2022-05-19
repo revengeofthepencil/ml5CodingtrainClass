@@ -1,0 +1,8 @@
+
+# build directories
+/out
+/build
+ml5Image.iml
+/.gradle
+/.idea
+
