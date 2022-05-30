@@ -1,3 +1,6 @@
+const CANVAS_WIDTH = 640;
+const CANVAS_HEIGHT = 560;
+
 let mobileNet;
 let testVideoCapture;
 let videoLabel = null;
@@ -6,16 +9,13 @@ const showresults = (error, results) => {
 	if (error) {
 		console.warn(`error in showresults: ${error}`);
 	} else {
-		console.log(results);
+		//console.log(results);
 		const firstRes = results[0];
 		const { confidence, label } = firstRes;
 		videoLabel = `Label: ${label}.\nConfidence: ${confidence}`;
-		/*
-		fill([255, 0, 0]);
-		textSize(24);
-		text(fullText, 20, 30);
-
-		 */
+		setTimeout(() => {
+			mobileNet.predict(showresults)
+		}, 1000)
 	}
 };
 
@@ -24,8 +24,6 @@ const modelReady = () => {
 	mobileNet.predict(showresults)
 };
 
-const CANVAS_WIDTH = 640;
-const CANVAS_HEIGHT = 440;
 
 function setup() {
 	createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
