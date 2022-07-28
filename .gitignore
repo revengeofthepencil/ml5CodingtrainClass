@@ -2,7 +2,7 @@
 # build directories
 /out
 /build
-ml5Image.iml
+*.iml
 /.gradle
 /.idea
 
