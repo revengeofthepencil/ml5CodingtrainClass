@@ -35,8 +35,15 @@ const whileTraining = (loss) => {
 	}
 };
 
+const modelReadyWithLoad = () => {
+	console.log('hooray! We loaded it!')
+	videoLabel = 'Yep, ready'
+	classifier.classify(showresults)
+};
+
 const modelReady = () => {
 	console.log('model is ready!');
+	classifier.load('support_files/lesson6model/model.json', modelReadyWithLoad);
 };
 
 const videoReady = () => {
